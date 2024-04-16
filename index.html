@@ -4,33 +4,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-    <script>
-        function goToProject1() {
-            var currentURL = window.location.href;
-            var newURL = currentURL.replace(/\/[^\/]*$/, "/project1/");
-            window.location.href = newURL;
-        }
-    </script>
+    <title>우리... 할 수 있죠</title>
 </head>
-
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="#" onclick="goToProject1()"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-                <span class="fs-4">Simple header</span>
-            </a>
-
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" onclick="location.href='guest_book.html'" class="nav-link">방명록</a></li>
-            </ul>
-        </header>
+   
+    <!-- 헤더 섹션-->
+    <div id="header">
     </div>
-</body>
 
+    
+    <section>
+        <div class="container">
+            <div class="content">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="image">
+                            <div class="">
+                                <img src="C:\gittest\docoding0228\image\images1.jpg" alt="Person 1">
+                            </div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="https://docoding0228.tistory.com/"><i class="fa-solid fa-blog blog-icon"></i></a>
+                            <a href="https://github.com/docoding0228"><i class="fa-brands fa-github github-icon"></i></a>
+                            
+                        </div>
+                        <div class="name-profession">
+                            <span class="name">이름 : 권도원</span><p></p>
+                            <p><span class="tendency">MBTI : ENTJ</span></p>
+                            <span class="promise">한 줄 다짐 : "오늘의 작은 노력이 내일의 큰 성취로 이어질 것이다."</span>
+                            <button class="aboutMe">상세 정보</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 추가된 인물 카드 -->
+                <!-- Person 2 -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="image">
+                            <div class="img-container">
+                                <img src="C:\gittest\docoding0228\image\images2.jpg" alt="Person 2">
+                            </div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="https://bomin-seo.github.io/"><i class="fa-solid fa-blog blog-icon"></i></a>
+                            <a href="https://github.com/Bomin-Seo"><i class="fa-brands fa-github github-icon"></i></a>
+                        </div>
+                        <div class="name-profession">
+                            <span class="name">이름 : 서보민</span><p></p>
+                            <p><span class="tendency">MBTI : ISTJ</span></p>
+                            <span class="promise">한 줄 다짐 : "어제보다 나은 내일을 만들기 위해 노력하자." 화이팅!! </span>
+                            <button class="aboutMe">상세 정보</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Person 3 -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="image">
+                            <div class="img-container">
+                                <img src="C:\gittest\docoding0228\image\images3.jpg" alt="Person 3">
+                            </div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="https://github.com/eooeoo3"><i class="fa-solid fa-blog blog-icon"></i></a>
+                            <a href="https://github.com/eooeoo3"><i class="fa-brands fa-github github-icon"></i></a>
+                        </div>
+                        <div class="name-profession">
+                            <span class="name">이름 : 이호종</span><p></p>
+                            <p><span class="tendency">MBTI : INTP</span></p>
+                            <span class="promise">한 줄 다짐 : "자신을 믿고 함께하는 동료들과 함께 성장하자." 화이팅!!</span>
+                            <button class="aboutMe">상세 정보</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Person 4 -->
+                <div class="card">
+                    <div class="card-content">
+                        <div class="image">
+                            <div class="img-container">
+                                <img src="C:\gittest\docoding0228\image\images4.jpg" alt="Person 4">
+                            </div>
+                        </div>
+                        <div class="media-icons" style="text-decoration: none;">
+                            <a href="https://velog.io/@tichall001/posts"><i class="fa-solid fa-blog blog-icon"></i></a>
+                            <a href="https://github.com/tichall"><i class="fa-brands fa-github github-icon"></i></a>
+                        </div>
+                        <div class="name-profession">
+                            <span class="name">이름 : 이서연</span><p></p>
+                            <p><span class="tendency">MBTI : INTP</span></p>
+                            <span class="promise">한 줄 다짐 : 끝까지 포기하지 않을 거에요! 우리 모두 화이팅!</span>
+                            <button class="aboutMe">상세 정보</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="image">
+                            <div class="img-container">
+                                <img src="C:\gittest\docoding0228\image\images5.jpg" alt="Person 4">
+                            </div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="https://velog.io/@tichall001/posts"><i class="fa-solid fa-blog blog-icon"></i></a>
+                            <a href="https://github.com/tichall"><i class="fa-brands fa-github github-icon"></i></a>
+                        </div>
+                        <div class="name-profession">
+                            <span class="name">이름 : 오형석</span><p></p>
+                            <p><span class="tendency">MBTI : INFJ</span></p>
+                            <span class="promise">한 줄 다짐 : "포기하지 않고 끝까지 밀고 나가자. 파이팅!!"</span>
+                            <button class="aboutMe">상세 정보</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    
+    <script>
+        // 헤더 파일 불러오기
+        $(document).ready(function() {
+            $("#header").load("./header.html");
+        })
+    </script>
+
+</body>
 </html>

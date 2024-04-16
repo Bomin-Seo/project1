@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+
+}
+
+section .card .image{
+    height: 140px;
+    width: 140px;
+    
+    /* 사진의 크기를 둥글게 만듬. */
+    border-radius: 50%;
+  
+    background: #7d2ae8;
+}
+.image {
+    height: 120px; /* 더 작은 크기로 조정 */
+    width: 120px; /* 더 작은 크기로 조정 */
+    border-radius: 50%;
+    background: #7d2ae8;
+    margin-bottom: 20px; /* 이미지 아래 여백 추가 */
+}
+
+section .card .image img{
+    margin-top: 10px;
+    height: 150px;
+    width: 150px;
+    border-radius: 60%;
+    border: 3px solid #fff;
+}
+
+.card {
+    position: relative;
+    /* 자기 자신의 기본 위치에서 상대적으로 이동 */
+    background: #fff;
+    border-radius: 20px;
+    width: 250px; 
+    height: auto; 
+    margin: 20px; 
+    overflow: hidden; /* 추가된 부분 */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+    z-index: 100;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    height: 28%;
+    width: 100%;
+    background: #7d2ae8;
+    border-radius: 20px 20px 0 0;
+}
+
+.card .name-profession {
+    display: flex;
+    flex-direction: column;
+    /* flex 로 컨테이너 지정 후 direction 으로 세로정렬 */
+    align-items: center;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.blog-icon,
+.github-icon {
+    
+    color: black;
+    margin: 10px;
+    font-size: 25px; /* 아이콘 크기 설정 */
+    cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능하게 함 */
+}
+
+.blog-icon:hover,
+.github-icon:hover {
+    opacity: 0.8; 
+    background: #fff;
+    /* 호버 시 투명도 조절 */
+    cursor: pointer; /* 호버 시 커서를 포인터로 변경 */
+    color: red; /* 호버 시 컬러를 빨간색으로 변경 */
+}
+
+.content {
+    display: flex;
+    flex-direction: row; 
+    /* 요소를 가로로 정렬 */
+    gap: 20px;
+}
+
+.card .aboutMe {
+    display: flex;
+    width: 150px;
+    justify-content: space-around;
+    margin-top: 20px;
+    background: #7d2ae8;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.aboutMe:hover {
+    background: #6616d0;
+}
+
+.promise {
+    text-align: center;
+}
