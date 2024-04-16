@@ -5,14 +5,15 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+.container {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f2f2f2;
-
+    /* background: #f2f2f2; */
 }
+
+
 
 section .card .image{
     height: 140px;
