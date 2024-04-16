@@ -8,7 +8,9 @@
 
     <script>
         function goToProject1() {
-            window.location.href = "https://bomin-seo.github.io/project1/";
+            var currentURL = window.location.href;
+            var newURL = currentURL.replace(/\/[^\/]*$/, "/project1/");
+            window.location.href = newURL;
         }
     </script>
 </head>
