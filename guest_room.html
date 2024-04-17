@@ -73,10 +73,6 @@
         }
         populateTable();
         
-        function refreshTable() {
-            document.querySelector("tbody").innerHTML = "";
-            populateTable();
-        }
 
     </script>
 </head>
@@ -92,7 +88,8 @@
             <div class="col-md-6">
                 <div class="button_container text-end">
                     <button type="button" class="btn btn-primary" onclick="openGuestInputPage()">방명록 남기기</button>
-                    <button type="button" class="btn btn-secondary" onclick="refreshTable()">새로고침</button>
+                    <!-- 수정된 버튼 -->
+                    <button type="button" class="btn btn-secondary" onclick="refreshPage()">새로고침</button>
                 </div>
             </div>
         </div>
@@ -120,6 +117,10 @@
 
         function openGuestBookPage() {
             window.location.href = 'guest_book.html';
+        }
+
+        function refreshPage() {
+            location.reload();
         }
     </script>
 </body>
