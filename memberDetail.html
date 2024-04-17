@@ -29,8 +29,59 @@
         </div>
     </nav>
 
-    <div id="info" class="contents">
-      
+    <div class="contents">
+        <div class="profile">
+            <div class="profileImgSec">
+                <div class="profileImg">
+                    <img class="img" id="memberImg"
+                    src="" >
+                </div>
+            </div>
+            <div class="profileText">
+                <div class="line1">
+                    <span id="memberName"></span>
+                    <p id="editBtn" onclick="loadPopup()">수정</p>
+                </div>
+                
+                <div class="line2" id="line2"> 
+                </div>
+
+                <p id="memberBio"></p>
+
+                <div class="urlBox" id="urlBox">
+                </div>
+            </div>
+        </div>
+        <!-- 하단 긴 글 섹션 -->
+        <div class="longContent">
+            <div class="element1">
+                <p class="segment">자기 소개</p>
+                <div class="segmentText" id="memberIntro"></div>
+            </div>
+
+            <div class="element2">
+                <p class="segment">나의 장점 3가지</p>
+                <div class="segmentText">
+                    <div class="segmentText2">
+                        <div class="number">1</div>
+                        <span id="memberPos1"></span>
+                    </div>
+                    <div class="segmentText2">
+                        <div class="number">2</div>
+                        <span id="memberPos2"></span>
+                    </div>
+                    <div class="segmentText2">
+                        <div class="number">3</div>
+                        <span id="memberPos3"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="element3">
+                <p class="segment">협업 스타일</p>
+                <div class="segmentText" id="memberStyle">
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 비밀번호 확인 팝업 -->
@@ -138,22 +189,12 @@
         window.location.href = "guest_room.html";
     });
 
-
-
-
-
-    // 실행 안 됨
-    // function loadPopup() {
-    //     $("#popupCheck").style.display = 'block';
-    // }
-
 </script>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    
 
     const firebaseConfig = {
         apiKey: "AIzaSyDh6zLnyROVOfCWvNFUc7ZuA8vwcfetQfg",
@@ -169,105 +210,49 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    
-
-    
-
     function getParameterByName(name) {
         var url = new URL(window.location.href);
         return url.searchParams.get(name);
     }
 
     let userId = getParameterByName("userid");
-    let docs = await getDocs(collection(db, "team_member"));
+    const pageRef = doc(db, "team_member", userId);
+    const snapshot = await getDoc(pageRef);
+    const object = snapshot.data();
+    
+    // 데이터베이스에 해당 객체 존재하는지 확인
+    if (snapshot.exists()) {
+        console.log(object);
+    } else {
+        console.log("err");
+    }
+    
+    // 각 태그에 해당되는 데이터 세팅 
+    $("#memberImg").attr('src', object.memberImage)
+    $('#memberName').text(object.memberName);
+    $('#line2').html(
+        `<span id="memberMbti">#${object.memberMbti}</span>
+        <span id="memberTag1">#${object.memberHobby}</span>
+        <span id="memberTag2">#${object.memberNickname}</span>`
+    );
 
-    docs.forEach((doc) => {
-        let row = doc.data();
-        console.log(userId);
-        let memberBio = row['memberBio'];
-        let memberBlog = row['memberBlog'];
-        let memberGithub = row['memberGithub'];
-        let memberHobby = row['memberHobby'];
-        let memberImage = row['memberImage'];
-        let memberIntro = row['memberIntro'];
-        let memberMbti = row['memberMbti'];
-        let memberName = row['memberName'];
-        let memberNickname = row['memberNickname'];
-        let memberPos1 = row['memberPos1'];
-        let memberPos2 = row['memberPos2'];
-        let memberPos3 = row['memberPos3'];
-        let memberStyle = row['memberStyle'];
-        if (memberNickname == userId) {
-            let temp_html = `
-            <div class="profile">
-            <div class="profileImgSec">
-                <div class="profileImg">
-                    <img classs="img" src="${memberImage}">
-                </div>
-            </div>
-            <div class="profileText">
-                <div class="line1">
-                    <span id="memberName">이서연</span>
-                    <p id="editBtn" onclick="loadPopup()">수정</p>
-                </div>
+    $('#memberBio').text(object.memberBio);
 
-                <div class="line2">
-                    <span id="memberMBTI">#${memberMbti}</span>
-                    <span id="memberTag">#${memberHobby}</span>
-                    <span id="memberTag">#${memberNickname}</span>
-                </div>
-
-                <p id="onelineBio">${memberBio}</p>
-
-                <div class="urlBox">
-                    <div class="url" id="github">
-                        <img src="./Image/github.png" alt="">
-                    </div>
-                    <div class="url" id="velog">
-                        <img src="./Image/velog.png" alt="">
-                    </div>
-                </div>
-
-
-            </div>
+    $('#urlBox').html( 
+        `<div class="url" id="memberGithub" onclick= "window.open('${object.memberGithub}')"
+        >
+            <img src="./Image/github.png">
         </div>
-        <!-- 하단 긴 글 섹션 -->
-        <div class="longContent">
-            <div class="element1">
-                <p class="segment">자기 소개</p>
-                <div class="segmentText" id="segmentText1">${memberIntro}</div>
-            </div>
+        <div class = "url" id ="memberBlog" onclick= "window.open('${object.memberBlog}')">
+            <img src="./Image/blog.png">
+        </div>`);
+    
+    $('#memberIntro').text(object.memberIntro);
+    $('#memberPos1').text(object.memberPos1);
+    $('#memberPos2').text(object.memberPos2);
+    $('#memberPos3').text(object.memberPos3);
+    $('#memberStyle').text(object.memberStyle);
 
-            <div class="element2">
-                <p class="segment">나의 장점 3가지</p>
-                <div class="segmentText">
-                    <div class="segmentText2">
-                        <div class="number">1</div>
-                        <span>${memberPos1}</span>
-                    </div>
-                    <div class="segmentText2">
-                        <div class="number">2</div>
-                        <span>${memberPos2}</span>
-                    </div>
-                    <div class="segmentText2">
-                        <div class="number">3</div>
-                        <span>${memberPos3}</span>
-                    </div>
-
-                </div>
-            </div>
-            <div class="element3">
-                <p class="segment">협업 스타일</p>
-                <div class="segmentText" id="segmentText3">
-                    ${memberStyle}
-                </div>
-            </div>
-        </div>
-            `;
-            $('#info').append(temp_html);
-        }
-
-    });
 </script>
 
 </html>
