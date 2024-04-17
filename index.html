@@ -37,10 +37,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-
-
-
-
         let docs = await getDocs(collection(db, "team_member"));
         docs.forEach((doc) => {
             let row = doc.data();
@@ -76,7 +72,7 @@
                             <span class="name">이름 : ${memberName}</span>
                             <span class="tendency">MBTI : ${memberMbti}</span>
                             <span class="promise">한 줄 다짐 : "${memberBio}"</span>
-                            <button id="${memberNickname}" class="aboutMe">상세 정보</button>
+                            <button class="aboutMe">상세 정보</button>
                         </div>
                     </div>
                 </div>
@@ -92,59 +88,10 @@
             window.location.href = "guest_book.html";
         });
 
-        $(".aboutMe").click(async function () {
-            $('html, body').animate({
-                scrollTop: $(document).height() 
-            }, 'slow');
+       
             
-            let memberId = $(this).attr('id');
-            let memberBio = '';
-            let memberHobby = '';
 
-            let memberIntro = '';
-            let memberMbti = '';
-            let memberName = '';
-            let memberNickname = '';
-            let memberPos1 = '';
-            let memberPos2 = '';
-            let memberPos3 = '';
-            let memberStyle = '';
-            docs.forEach(doc => {
-                let row = doc.data();
-                if (memberId == row['memberNickname']) {
-                    memberBio = row['memberBio'];
-                    memberHobby = row['memberHobby'];
-                    memberIntro = row['memberIntro'];
-                    memberMbti = row['memberMbti'];
-                    memberName = row['memberName'];
-                    memberNickname = row['memberNickname'];
-                    memberPos1 = row['memberPos1'];
-                    memberPos2 = row['memberPos2'];
-                    memberPos3 = row['memberPos3'];
-                    memberStyle = row['memberStyle'];
-                }
-            });
-            $("#member-detail").empty();
-            let temp_html = `
-                    <div>
-                <h2>상세 정보</h2>
-                <p><strong>닉네임:</strong> ${memberNickname}</p>
-                <p><strong>자기소개:</strong> ${memberIntro}</p>
-                <p><strong>취미:</strong> ${memberHobby}</p>
-                <p><strong>자신의 장점:</strong>
-                    <ul>
-                        <li>${memberPos1}</li>
-                        <li>${memberPos2}</li>
-                        <li>${memberPos3}</li>
-                    </ul>
-                </p>
-                <p><strong>맴버 스타일:</strong> ${memberStyle}</p>
-                </div>
-                    
-                    `;
-            $('#member-detail').append(temp_html);
-
-        })
+        
     </script>
 
 </head>
@@ -170,11 +117,6 @@
             <div id="member" class="content">
             </div>
     </section>
-    <div>
-        <div id="member-detail">
-
-        </div>
-    </div>
 
 
 </body>
