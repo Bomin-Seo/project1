@@ -45,7 +45,7 @@
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-        let entryNumber = 1; // Initialize the entry number
+        let entryNumber = 1;
         
         async function populateTable() {
             const querySnapshot = await getDocs(collection(db, "guestbook_entries"));
@@ -56,7 +56,7 @@
                 const newRow = document.createElement("tr");
 
                 const numberCell = document.createElement("td");
-                numberCell.textContent = entryNumber; // Use the entry number
+                numberCell.textContent = entryNumber; 
                 newRow.appendChild(numberCell);
 
                 const nameCell = document.createElement("td");
@@ -72,6 +72,12 @@
             });
         }
         populateTable();
+        
+        function refreshTable() {
+            document.querySelector("tbody").innerHTML = "";
+            populateTable();
+        }
+
     </script>
 </head>
 
@@ -80,12 +86,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="button_container">
-                    <button type="button" class="btn btn-primary">내가 쓴 방명록 수정/삭제</button>
+                    <button type="button" class="btn btn-primary" onclick="openGuestBookPage()">내가 쓴 방명록 수정/삭제</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="button_container text-end">
                     <button type="button" class="btn btn-primary" onclick="openGuestInputPage()">방명록 남기기</button>
+                    <button type="button" class="btn btn-secondary" onclick="refreshTable()">새로고침</button>
                 </div>
             </div>
         </div>
@@ -105,27 +112,14 @@
             </tbody>
         </table>
     </div>
-    
-    <!-- 화면 닫으면 새로고침 구현 x;; 새로고침 버튼 -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6"> 
-                <button type="button" class="btn btn-secondary" onclick="refreshPage()">새로고침</button>
-            </div>
-        </div>
-    </div>
-
-   
-   
 
     <script>
         function openGuestInputPage() {
-            window.open('guest_input.html', '_blank', 'width=600,height=400');
+            window.open('guest_input.html', '_blank');
         }
-    </script>
-    <script>
-        function refreshPage() {
-            location.reload();
+
+        function openGuestBookPage() {
+            window.location.href = 'guest_book.html';
         }
     </script>
 </body>
