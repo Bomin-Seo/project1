@@ -47,7 +47,7 @@
     box-shadow: 0px 0px 15px gray;
 }
 
-.editImg {
+.editImgSec {
     width: 10rem;
     height: 10rem;
     border-radius: 70%;
@@ -119,12 +119,15 @@ img {
     overflow: hidden;
     margin: 0.4rem;
 }
+.url:hover {
+    cursor: pointer;
+}
 
-.url img {
+/* .url img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
 #memberBio {
     font-size: 1.3rem;
