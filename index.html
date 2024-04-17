@@ -72,7 +72,7 @@
                             <span class="name">이름 : ${memberName}</span>
                             <span class="tendency">MBTI : ${memberMbti}</span>
                             <span class="promise">한 줄 다짐 : "${memberBio}"</span>
-                            <button class="aboutMe">상세 정보</button>
+                            <button class="aboutMe" data-id="${memberNickname}">상세 정보</button>
                         </div>
                     </div>
                 </div>
@@ -80,17 +80,23 @@
             $('#member').append(temp_html);
         });
 
-        $(document).on("click", "#guestBookBtn", function () {
-            window.location.href = "guest_room.html";
-        });
+        $(document).ready(function () {
+            $("#header").load("header.html");
+            $(".aboutMe").click(function () {
+                let userId = $(this).data("id");
+                window.location.href = "memberDetail.html?userid=" + userId;
+            });
 
-        
+            $(document).on("click", "#guestBookBtn", function () {
+                window.location.href = "guest_room.html";
+            });
+
+        })
     </script>
 
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <a class="navbar-brand mx-auto" href="#" style="text-decoration: none;">우리... 할 수 있조 🔥</a>
         <div class="d-flex" role="search">
