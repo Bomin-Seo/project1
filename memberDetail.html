@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +10,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- 부트스트랩 적용 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="./memberDetail.css">
     <link rel="stylesheet" href="./checkPopup.css">
     <link rel="stylesheet" href="./editPopup.css">
     <link rel="stylesheet" href="style.css">
-    
+
 
 </head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,72 +29,8 @@
         </div>
     </nav>
 
-    <div class="contents">
-        <div class="profile">
-            <div class="profileImgSec">
-                <div class="profileImg">
-                    <img classs="img"
-                    src="./Image/profileLSY.jpg" >
-                </div>
-            </div>
-            <div class="profileText">
-                <div class="line1">
-                    <span id="memberName">이서연</span>
-                    <p id="editBtn" onclick="loadPopup()">수정</p>
-                </div>
-                
-                <div class="line2">
-                    <span id="memberMBTI">#INTP</span>
-                    <span id="memberTag">#영화마니아</span>
-                    <span id="memberTag">#도파민중독</span>
-                </div>
-                
-                <p id="onelineBio">어제보다 오늘 더 나은 개발자가 되겠습니다!</p>
-
-                <div class="urlBox">
-                    <div class="url" id="github">
-                        <img src="./Image/github.png" alt="">
-                    </div>
-                    <div class = "url" id ="velog">
-                        <img src="./Image/velog.png" alt="">
-                    </div>
-                </div>
-                
-
-            </div>
-        </div>
-        <!-- 하단 긴 글 섹션 -->
-        <div class="longContent">
-            <div class="element1">
-                <p class="segment">자기 소개</p>
-                <div class="segmentText" id="segmentText1">안녕하세요:) JAVA 5기 참여하게 된 24살 이서연입니다! 프로젝트 경험도 처음, 자바 스프링 공부도 처음인데 열심히 공부해서 잘 따라가보겠습니다 🙌 아직 아는 건 많이 없지만 앞으로 잘 부탁드려요😉</div>
-            </div>
-
-            <div class="element2">
-                <p class="segment">나의 장점 3가지</p>
-                <div class="segmentText">
-                    <div class="segmentText2">
-                        <div class="number">1</div>
-                        <span>제 의견은 말하되, 밀어붙이지 않아요!</span>
-                    </div>
-                    <div class="segmentText2">
-                        <div class="number">2</div>
-                        <span>고맙다는 말, 미안하다는 말은 바로바로!</span>
-                    </div>
-                    <div class="segmentText2">
-                        <div class="number">3</div>
-                        <span>상대의 장점을 잘 발견하는 게 저의 장점!</span>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="element3">
-                <p class="segment">협업 스타일</p>
-                <div class="segmentText" id="segmentText3">
-                    편하게 소통하는 걸 선호합니다. 모르는 부분, 어려운 부분이 있으면 함께 이야기하고 싶어요! 
-                </div>
-            </div>
-        </div>
+    <div id="info" class="contents">
+      
     </div>
 
     <!-- 비밀번호 확인 팝업 -->
@@ -105,7 +39,8 @@
             <p id="exitPopup" onclick="exitPopup()">✖</p>
             <div class="checkContent">
                 <p id="alertMsg">개인 코드를 입력해주세요!</p>
-                <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="password" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
                 <p id="failMsg">존재하는 개인 코드가 없습니다!</p>
                 <button class="btn mt-3" id="check">확인</button>
             </div>
@@ -117,34 +52,39 @@
         <div class="editSection">
             <p id="exitPopup" onclick="exitPopup()">✖</p>
             <div class="editImg">
-                <img classs="img"
-                src="./Image/profileLSY.jpg" >
+                <img classs="img" src="./Image/profileLSY.jpg">
             </div>
             <input class="form-control mt-2" type="file" id="image">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Mbti</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">최애 취미</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
 
                 <span class="input-group-text" id="inputGroup-sizing-default">나만의 수식어</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">다짐 한 마디</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Github 주소</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">블로그 주소</span>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
             </div>
 
             <div class="mb-3">
@@ -156,15 +96,18 @@
                 <label class="form-label">나만의 장점</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">1</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">2</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">3</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
                 </div>
             </div>
             <div class="mb-3">
@@ -172,12 +115,11 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button class="btn mt-3" id="update">수정하기</button>
-        </div>   
+        </div>
     </div>
 
 </body>
 <script>
-
     function loadPopup() {
         document.getElementById('popupCheck').style.display = 'block';
     }
@@ -187,14 +129,16 @@
         document.getElementById('popupEdit').style.display = 'none';
     }
 
-    document.getElementById('check').addEventListener('click', function() {
+    document.getElementById('check').addEventListener('click', function () {
         document.getElementById('popupCheck').style.display = 'none';
         document.getElementById('popupEdit').style.display = 'block';
     })
 
     $(document).on("click", "#guestBookBtn", function () {
-            window.location.href = "guest_room.html";
-        });
+        window.location.href = "guest_room.html";
+    });
+
+
 
 
 
@@ -204,4 +148,126 @@
     // }
 
 </script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDh6zLnyROVOfCWvNFUc7ZuA8vwcfetQfg",
+        authDomain: "sparta-c733d.firebaseapp.com",
+        projectId: "sparta-c733d",
+        storageBucket: "sparta-c733d.appspot.com",
+        messagingSenderId: "1031155272900",
+        appId: "1:1031155272900:web:cb870f935defdb8088cd91",
+        measurementId: "G-E2LVXM0BPR"
+    };
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    
+
+    
+
+    function getParameterByName(name) {
+        var url = new URL(window.location.href);
+        return url.searchParams.get(name);
+    }
+
+    let userId = getParameterByName("userid");
+    let docs = await getDocs(collection(db, "team_member"));
+
+    docs.forEach((doc) => {
+        let row = doc.data();
+        console.log(userId);
+        let memberBio = row['memberBio'];
+        let memberBlog = row['memberBlog'];
+        let memberGithub = row['memberGithub'];
+        let memberHobby = row['memberHobby'];
+        let memberImage = row['memberImage'];
+        let memberIntro = row['memberIntro'];
+        let memberMbti = row['memberMbti'];
+        let memberName = row['memberName'];
+        let memberNickname = row['memberNickname'];
+        let memberPos1 = row['memberPos1'];
+        let memberPos2 = row['memberPos2'];
+        let memberPos3 = row['memberPos3'];
+        let memberStyle = row['memberStyle'];
+        if (memberNickname == userId) {
+            let temp_html = `
+            <div class="profile">
+            <div class="profileImgSec">
+                <div class="profileImg">
+                    <img classs="img" src="${memberImage}">
+                </div>
+            </div>
+            <div class="profileText">
+                <div class="line1">
+                    <span id="memberName">이서연</span>
+                    <p id="editBtn" onclick="loadPopup()">수정</p>
+                </div>
+
+                <div class="line2">
+                    <span id="memberMBTI">#${memberMbti}</span>
+                    <span id="memberTag">#${memberHobby}</span>
+                    <span id="memberTag">#${memberNickname}</span>
+                </div>
+
+                <p id="onelineBio">${memberBio}</p>
+
+                <div class="urlBox">
+                    <div class="url" id="github">
+                        <img src="./Image/github.png" alt="">
+                    </div>
+                    <div class="url" id="velog">
+                        <img src="./Image/velog.png" alt="">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- 하단 긴 글 섹션 -->
+        <div class="longContent">
+            <div class="element1">
+                <p class="segment">자기 소개</p>
+                <div class="segmentText" id="segmentText1">${memberIntro}</div>
+            </div>
+
+            <div class="element2">
+                <p class="segment">나의 장점 3가지</p>
+                <div class="segmentText">
+                    <div class="segmentText2">
+                        <div class="number">1</div>
+                        <span>${memberPos1}</span>
+                    </div>
+                    <div class="segmentText2">
+                        <div class="number">2</div>
+                        <span>${memberPos2}</span>
+                    </div>
+                    <div class="segmentText2">
+                        <div class="number">3</div>
+                        <span>${memberPos3}</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="element3">
+                <p class="segment">협업 스타일</p>
+                <div class="segmentText" id="segmentText3">
+                    ${memberStyle}
+                </div>
+            </div>
+        </div>
+            `;
+            $('#info').append(temp_html);
+        }
+
+    });
+</script>
+
 </html>
