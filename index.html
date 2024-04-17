@@ -16,6 +16,16 @@
 
     <title>우리... 할 수 있죠</title>
 
+    <script>
+        $(document).ready(function () {
+            $("#header").load("header.html");
+        });
+
+        $(document).on("click", "#guestBookBtn", function () {
+            window.location.href = "guest_book.html";
+        });
+    </script>
+
 </head>
 
 <body>
@@ -141,15 +151,7 @@
             </div>
     </section>
 
-    <script>
-        $(document).ready(function () {
-            $("#header").load("header.html");
-        });
-
-        $(document).on("click", "#guestBookBtn", function () {
-            window.location.href = "guest_book.html";
-        });
-    </script>
+    
 </body>
 
 </html>
