@@ -16,14 +16,79 @@
 
     <title>우리... 할 수 있죠</title>
 
-    <script>
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDh6zLnyROVOfCWvNFUc7ZuA8vwcfetQfg",
+            authDomain: "sparta-c733d.firebaseapp.com",
+            projectId: "sparta-c733d",
+            storageBucket: "sparta-c733d.appspot.com",
+            messagingSenderId: "1031155272900",
+            appId: "1:1031155272900:web:cb870f935defdb8088cd91",
+            measurementId: "G-E2LVXM0BPR"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        let docs = await getDocs(collection(db, "team_member"));
+        docs.forEach((doc) => {
+            let row = doc.data();
+            let memberBio = row['memberBio'];
+            let memberBlog = row['memberBlog'];
+            let memberGithub = row['memberGithub'];
+            let memberHobby = row['memberHobby'];
+            let memberImage = row['memberImage'];
+            let memberIntro = row['memberIntro'];
+            let memberMbti = row['memberMbti'];
+            let memberName = row['memberName'];
+            let memberNickname = row['memberNickname'];
+            let memberPos1 = row['memberPos1'];
+            let memberPos2 = row['memberPos2'];
+            let memberPos3 = row['memberPos3'];
+            let memberStyle = row['memberStyle'];
+
+            let temp_html = `
+            <div class="card">
+                    <div class="card-content">
+                        <div class="image">
+                            <div class="">
+                                <img src="${memberImage}" alt="Person 1">
+                            </div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="${memberBlog}"><i class="fa-solid fa-blog blog-icon"></i></a>
+                            <a href="${memberGithub}"><i
+                                    class="fa-brands fa-github github-icon"></i></a>
+
+                        </div>
+                        <div class="name-profession">
+                            <span class="name">이름 : ${memberName}</span>
+                            <span class="tendency">MBTI : ${memberMbti}</span>
+                            <span class="promise">한 줄 다짐 : "${memberBio}"</span>
+                            <button class="aboutMe">상세 정보</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $('#member').append(temp_html);
+        });
+
         $(document).ready(function () {
             $("#header").load("header.html");
         });
 
         $(document).on("click", "#guestBookBtn", function () {
-            window.location.href = "guest_room.html";
+            window.location.href = "guest_book.html";
         });
+
+        
     </script>
 
 </head>
@@ -42,115 +107,11 @@
             <p class="notice-content">이번 주 휴무 안내: 본사는 금요일에만 열고, 토요일과 일요일은 휴무입니다. 감사합니다.</p>
         </div>
     </div>
+
+
     <section>
         <div class="container">
-            <div class="content">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="image">
-                            <div class="">
-                                <img src="https://github.com/Bomin-Seo/project1/assets/94039896/f66d2ae5-e0f1-4941-a48f-9e0e63e0686c"
-                                    alt="Person 1">
-                            </div>
-                        </div>
-                        <div class="media-icons">
-                            <a href="https://docoding0228.tistory.com/"><i class="fa-solid fa-blog blog-icon"></i></a>
-                            <a href="https://github.com/docoding0228"><i
-                                    class="fa-brands fa-github github-icon"></i></a>
-
-                        </div>
-                        <div class="name-profession">
-                            <span class="name">이름 : 권도원 (팀원)</span>
-                            <span class="tendency">MBTI : ENTJ</span>
-                            <span class="promise">한 줄 다짐 : "오늘의 작은 노력이 내일의 큰 성취로 이어질 것이다."</span>
-                            <button class="aboutMe">상세 정보</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- 추가된 인물 카드 -->
-                <!-- Person 2 -->
-                <div class="card">
-                    <div class="card-content">
-                        <div class="image">
-                            <div class="img-container">
-                                <img src="https://github.com/Bomin-Seo/project1/assets/94039896/1afe642e-1290-4d73-aa99-04841b4dba06"
-                                    alt="Person 2">
-                            </div>
-                        </div>
-                        <div class="media-icons">
-                            <a href="https://bomin-seo.github.io/"><i class="fa-solid fa-blog blog-icon"></i></a>
-                            <a href="https://github.com/Bomin-Seo"><i class="fa-brands fa-github github-icon"></i></a>
-                        </div>
-                        <div class="name-profession">
-                            <span class="name">이름 : 서보민 (팀장)</span>
-                            <span class="tendency">MBTI : ISTJ</span>
-                            <span class="promise">한 줄 다짐 : "어제보다 나은 내일을 만들기 위해 노력하자." 화이팅!! </span>
-                            <button class="aboutMe">상세 정보</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Person 3 -->
-                <div class="card">
-                    <div class="card-content">
-                        <div class="image">
-                            <div class="img-container">
-                                <img src="https://github.com/Bomin-Seo/project1/assets/94039896/cbf3eb8f-704f-422f-af2b-396fbb5c7c6a"
-                                    alt="Person 3">
-                            </div>
-                        </div>
-                        <div class="media-icons">
-                            <a href="https://github.com/eooeoo3"><i class="fa-solid fa-blog blog-icon"></i></a>
-                            <a href="https://github.com/eooeoo3"><i class="fa-brands fa-github github-icon"></i></a>
-                        </div>
-                        <div class="name-profession">
-                            <span class="name">이름 : 이호종 (팀원)</span>
-                            <span class="tendency">MBTI : INTP</span>
-                            <span class="promise">한 줄 다짐 : "자신을 믿고 함께하는 동료들과 함께 성장하자." 화이팅!!</span>
-                            <button class="aboutMe">상세 정보</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Person 4 -->
-                <div class="card">
-                    <div class="card-content">
-                        <div class="image">
-                            <div class="img-container">
-                                <img src="https://github.com/Bomin-Seo/project1/assets/94039896/b43043bb-7422-4f0b-a50e-ece8ca70e43a"
-                                    alt="Person 4">
-                            </div>
-                        </div>
-                        <div class="media-icons" style="text-decoration: none;">
-                            <a href="https://velog.io/@tichall001/posts"><i class="fa-solid fa-blog blog-icon"></i></a>
-                            <a href="https://github.com/tichall"><i class="fa-brands fa-github github-icon"></i></a>
-                        </div>
-                        <div class="name-profession">
-                            <span class="name">이름 : 이서연 (팀원)</span>
-                            <span class="tendency">MBTI : INTP</span>
-                            <span class="promise">한 줄 다짐 : 끝까지 포기하지 않을 거에요! 우리 모두 화이팅!</span>
-                            <button class="aboutMe">상세 정보</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <div class="image">
-                            <div class="img-container">
-                                <img src="https://github.com/Bomin-Seo/project1/assets/94039896/4f05bb2c-e5aa-4b4b-80ac-8ab378b4f325"
-                                    alt="Person 4">
-                            </div>
-                        </div>
-                        <div class="media-icons">
-                            <a href="https://velog.io/@tichall001/posts"><i class="fa-solid fa-blog blog-icon"></i></a>
-                            <a href="https://github.com/ohs9902"><i class="fa-brands fa-github github-icon"></i></a>
-                        </div>
-                        <div class="name-profession">
-                            <span class="name">이름 : 오형석 (팀원)</span>
-                            <span class="tendency">MBTI : ISFP</span>
-                            <span class="promise">한 줄 다짐 : "포기하지 않고 끝까지 밀고 나가자. 파이팅!!"</span>
-                            <button class="aboutMe">상세 정보</button>
-                        </div>
-                    </div>
-                </div>
+            <div id="member" class="content">
             </div>
     </section>
 
