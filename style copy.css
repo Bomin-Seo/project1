@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'TTHakgyoansimDotbogiR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimDotbogiR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.image {
+    height: 120px; /* 더 작은 크기로 조정 */
+    width: 120px; /* 더 작은 크기로 조정 */
+    border-radius: 50%;
+    background: #7d2ae8;
+    margin-bottom: 20px; /* 이미지 아래 여백 추가 */
+}
+
+.card {
+    position: relative;
+    /* 자기 자신의 기본 위치에서 상대적으로 이동 */
+    background: #fff;
+    border-radius: 10%;
+    width: 200px; 
+    height: 380px;
+    margin: 10px; 
+    overflow: hidden;
+    /* margin-top: 10px; */
+    border: 2px solid #000; /* 테두리 추가 */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    z-index: 100;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    height: 30%;
+    width: 100%;
+    background: #00ffa2;
+    border-radius: 0 0 0 0;
+}
+
+.card .name-profession {
+    display: flex;
+    flex-direction: column;
+    /* flex 로 컨테이너 지정 후 direction 으로 세로정렬 */
+    align-items: center;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.blog-icon,
+.github-icon {
+    color: black;
+    margin: 10px;
+    font-size: 20px; /* 아이콘 크기 설정 */
+    cursor: pointer; /* 커서를 포인터로 변경하여 클릭 가능하게 함 */
+}
+
+.blog-icon:hover,
+.github-icon:hover {
+    opacity: 0.8; 
+    background: #fff;
+    /* 호버 시 투명도 조절 */
+    cursor: pointer; /* 호버 시 커서를 포인터로 변경 */
+    color: red; /* 호버 시 컬러를 빨간색으로 변경 */
+}
+
+.content {
+    display: flex;
+    flex-direction: row; 
+    /* 요소를 가로로 정렬 */
+    gap: 20px;
+}
+
+.card .aboutMe {
+    display: flex;
+    width: 150px;
+    justify-content: space-around;
+    margin-top: 20px;
+    background: #00ddff;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 10px;
+    transition: all 0.3s ease;
+}
+
+.aboutMe:hover {
+    background: #00ffa2;
+}
+
+.promise, .name, .tendency{
+    text-align: center; 
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-family: "Single Day", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+section .image{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background: #00ffa2;
+}
+
+
+section .image img{
+    margin-top: 10px;
+    height: 150px;
+    width: 140px;
+    border-radius: 50%; 
+    border: 2px solid #000;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+}
+
+.navbar {
+    background-color: #44ff00;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 2px rgb(0, 255, 251);
+    font-family: 'TTHakgyoansimDotbogiR';   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .navbar-teamname {
+    color: #003cff;
+    font-size: 1.3rem;
+    text-align: center;
+    flex-grow: 1; /* 중앙에 정렬되도록 확장되도록 설정합니다. */
+    animation-iteration-count: 3;
+    animation-name: controller;
+    animation-duration: 2s;
+}
+
+/* @keyframes를 사용하여 rotateText 애니메이션을 정의합니다. */
+@keyframes controller {
+    0% {
+      transform: rotate(45deg);
+    }
+    25% {
+      transform: rotate(-45deg);
+    }
+    50% {
+      transform: rotate(45deg);
+    }
+    75% {
+      transform: scale(2);
+    }
+    100% {
+      transform: scale(0);
+      transform: skew(0deg);
+    }
+  }
+  .navbar-teamname:hover {
+    color: #ff0000;
+  }
+
+  #guestBookBtn, #HomeBtn {
+    border: 2px solid rgb(1, 1, 1);
+    color: #000000;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .notice-container {
+    display: flex;
+    justify-content: center; /* 요소들을 가운데 정렬합니다. */
+    gap: 30px; /* 요소들 사이의 간격을 설정합니다. */
+    margin-top: 30px; /* 위쪽 간격을 추가합니다. */
+  }
+
+  .notice {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(50% - 10px); /* 컨테이너의 절반 크기로 설정하고 간격을 빼줍니다. */
+    max-width: 300px; /* 최대 너비를 설정합니다. */
+  }
+
+  .notice-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .notice-content {
+    font-size: 18px;
+    text-align: center;
+  }
