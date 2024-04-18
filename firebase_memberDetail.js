@@ -54,14 +54,20 @@ export async function displayDetailpage() {
     $('#memberBio').text(object.memberBio);
 
     $('#urlBox').html( 
-        `<div class="url" id="memberGithub" onclick= "window.open('${object.memberGithub}')"
-        >
-            <img src="./Image/github.png">
-        </div>
-        <div class = "url" id ="memberBlog" onclick= "window.open('${object.memberBlog}')">
-            <img src="./Image/blog.png">
-        </div>`);
-    
+        `<a href="${object.memberBlog}" target="_blank"><i class="fa-solid fa-blog blog-icon" id="blogLink"></i></a>
+        <a href="${object.memberGithub}" target="_blank"><i
+        class="fa-brands fa-github github-icon" id="githubLink"></i></a>`
+        );
+        
+
+                
+                `<div class="url" id="memberGithub" onclick= "window.open('${object.memberGithub}')"
+                >
+                    <img src="./Image/github.png">
+                </div>
+                <div class = "url" id ="memberBlog" onclick= "window.open('${object.memberBlog}')">
+                    <img src="./Image/blog.png">
+                </div>`
     $('#memberIntro').text(object.memberIntro);
     $('#memberPos1').text(object.memberPos1);
     $('#memberPos2').text(object.memberPos2);

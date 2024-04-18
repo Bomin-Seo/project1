@@ -22,6 +22,7 @@
 .body {
     overflow: hidden;
 }
+
 .contents {
     width: 85%;
     margin: 0 auto 0 auto;
@@ -113,6 +114,13 @@ img {
     justify-content: flex-end;
 }
 
+#blogLink, #githubLink {
+    font-size: 2.8rem;
+    overflow: hidden;
+    margin: 0.4rem;
+    background-color: #eff1d7;
+}
+
 .url {
     width: 2.8em;
     height: 2.8rem;
@@ -122,12 +130,6 @@ img {
 .url:hover {
     cursor: pointer;
 }
-
-/* .url img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
 
 #memberBio {
     font-size: 1.3rem;
